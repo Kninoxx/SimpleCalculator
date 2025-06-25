@@ -131,8 +131,6 @@
 </div>
 <script src="https://cdn.jsdelivr.net/npm/mathjs@14.5.2/lib/browser/math.min.js"></script>
 <script>
-const inputField = document.getElementById('field');
-const isReadOnly = inputField.readOnly;
 const buttonOne = document.getElementById('1')
 const buttonTwo = document.getElementById('2')
 const buttonThree = document.getElementById('3')
@@ -157,13 +155,6 @@ const buttonRaiseToSecond = document.getElementById('raise')
 const buttonRaiseToY = document.getElementById('raiseToY')
 let result = 0;
 let expression = "";
-function SafetyCheck() {
-      if (!isReadOnly) {
-        alert("CLOSE THIS TAB NOW - SECURITY COMPROMISED");
-        throw new Error("Execution halted due to security condition.");
-    }
-    }
-SafetyCheck()
 
 function stopInput(input) {
     switch (input) {
@@ -194,10 +185,6 @@ return
 
 
 function calculateResult() {
-        if (!inputField.readOnly) {
-        alert("CLOSE THIS TAB NOW - SECURITY COMPROMISED");
-        throw new Error("Readonly attribute has been bypassed.");
-    }
 try {
         result = math.evaluate(expression);
         document.getElementById('field').value = result;
